@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ALAMIN X Gaming</title>
+<style>
+:root{--bg:#080b14;--panel:#111827;--text:#eef2ff;--muted:#a5b4c9;--accent:#7c3aed;--accent2:#06b6d4}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at top,#1a1740 0,#080b14 50%);font-family:system-ui,Arial,sans-serif;color:var(--text)}
+header{padding:28px 18px;text-align:center;background:#0b1020dd;border-bottom:1px solid #29334b}
+h1{margin:0;font-size:clamp(28px,6vw,44px);letter-spacing:2px}h1 span{color:#a78bfa}
+header p{color:var(--muted);margin:8px 0 0}.wrap{max-width:1050px;margin:auto;padding:22px 16px}
+.tools{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}.tools input{flex:1;min-width:180px;background:#111827;color:white;border:1px solid #334155;border-radius:12px;padding:12px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.card{background:linear-gradient(145deg,#151d31,#0f1422);border:1px solid #29344b;border-radius:18px;padding:18px;box-shadow:0 10px 24px #0003}
+.card h2{margin:8px 0;font-size:20px}.card p{color:var(--muted);min-height:42px}.card a{display:inline-block;text-decoration:none;color:white;background:linear-gradient(90deg,var(--accent),var(--accent2));padding:10px 14px;border-radius:10px;font-weight:700}
+.emoji{font-size:38px}footer{text-align:center;color:var(--muted);padding:24px}#empty{display:none;color:var(--muted);padding:20px}
+</style>
+</head>
+<body>
+<header><h1>ALAMIN <span>X</span> GAMING</h1><p>Free browser games • Play on mobile</p></header>
+<main class="wrap">
+<div class="tools"><input id="search" placeholder="গেম খুঁজুন / Search games..." aria-label="Search games"></div>
+<div class="grid" id="games">
+<div class="card" data-name="2048"><div class="emoji">🔢</div><h2>2048</h2><p>সংখ্যা মিলিয়ে 2048 তৈরি করো।</p><a href="https://play2048.co/" target="_blank" rel="noopener">Play Game</a></div>
+<div class="card" data-name="snake"><div class="emoji">🐍</div><h2>Snake</h2><p>ক্লাসিক সাপের গেম খেলো।</p><a href="https://snake.io/" target="_blank" rel="noopener">Play Game</a></div>
+<div class="card" data-name="tetris"><div class="emoji">🧱</div><h2>Tetris</h2><p>ব্লক সাজিয়ে লাইন সম্পূর্ণ করো।</p><a href="https://tetris.com/play-tetris" target="_blank" rel="noopener">Play Game</a></div>
+<div class="card" data-name="chess"><div class="emoji">♟️</div><h2>Chess</h2><p>অনলাইনে দাবা খেলো।</p><a href="https://www.chess.com/play" target="_blank" rel="noopener">Play Game</a></div>
+<div class="card" data-name="agar"><div class="emoji">🟢</div><h2>Agar.io</h2><p>মজার অনলাইন মাল্টিপ্লেয়ার গেম।</p><a href="https://agar.io/" target="_blank" rel="noopener">Play Game</a></div>
+<div class="card" data-name="minesweeper"><div class="emoji">💣</div><h2>Minesweeper</h2><p>মাথা খাটিয়ে বোর্ড পরিষ্কার করো।</p><a href="https://minesweeper.online/" target="_blank" rel="noopener">Play Game</a></div>
+</div><div id="empty">কোনো গেম পাওয়া যায়নি।</div>
+</main><footer>© 2026 ALAMIN X Gaming • Made for gamers</footer>
+<script>
+const input=document.getElementById('search'),cards=[...document.querySelectorAll('.card')],empty=document.getElementById('empty');
+input.addEventListener('input',()=>{const q=input.value.toLowerCase();let n=0;cards.forEach(c=>{const show=c.dataset.name.includes(q)||c.innerText.toLowerCase().includes(q);c.style.display=show?'':'none';if(show)n++});empty.style.display=n?'none':'block'});
+</script>
+</body>
+</html>
